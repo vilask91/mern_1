@@ -2,6 +2,7 @@ var User = require('../models/user.model');
 
 exports.createUser =  async function  (req, res) {
     try {
+      
        const { name, dob, gender, role } = req.body;
        const newUser = new User({ name, dob, gender, role });
        await newUser.save();
