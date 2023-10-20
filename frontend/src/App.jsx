@@ -23,7 +23,8 @@ class UsersListErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
-var base_url = "http://127.0.0.1:4000"
+var base_url = window._CONFIG.REACT_APP_API;
+console.log("base_url", window._CONFIG)
 const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
