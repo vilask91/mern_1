@@ -25,20 +25,7 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Mern App</title>
-    <script type="text/javascript">
-   console.log("%REACT_APP_API%") 
-      const env = process.env;
-   console.log("env", env) 
-
-window._CONFIG = {
-  NODE_ENV: env.NODE_ENV,
-};
-
-Object.keys(env).filter(key => key.startsWith('REACT_APP_')).forEach(key => {
-  window._CONFIG[key] = env[key];
-});
-      console.log("window._CONFIG", window._CONFIG)
-  </script>
+   
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
