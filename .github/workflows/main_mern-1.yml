@@ -38,6 +38,8 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    env:
+      CI: false
     needs: build
     environment:
       name: 'Production'
