@@ -20,6 +20,11 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(bodyParser.json()); // todo test later
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("../frontend/build"))
+
+app.get("/", (req, res) => {
+ res.sendFile(path.resolve(__dirname,"../" ,"frontend", "build", "index.html")); 
+});
 
 mongoose.connect(process.env.DB_URL, {
  useNewUrlParser: true,
@@ -27,7 +32,7 @@ mongoose.connect(process.env.DB_URL, {
 })
 .then(() => {
     console.log('Connected to MongoDB...');
-    let port = process.env.PORT;
+    let port = process.env.PORT || 3001;
     app.listen(port, () => {
         console.log(`Server is running on port ${port}`);
     }).on('error', (err) => {
@@ -45,7 +50,7 @@ mongoose.connect(process.env.DB_URL, {
 
 
 
-app.use('/', indexRouter);
+app.use('/api', indexRouter);
 app.use('/users', usersRouter);
 
 module.exports = app;
