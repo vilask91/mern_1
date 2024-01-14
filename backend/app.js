@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static("../frontend/build"))
 
-app.get("/", (req, res) => {
+app.get("/app", (req, res) => {
  res.sendFile(path.resolve(__dirname,"../" ,"frontend", "build", "index.html")); 
 });
 
@@ -50,7 +50,7 @@ mongoose.connect(process.env.DB_URL, {
 
 
 
-app.use('/api', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 module.exports = app;
