@@ -24,8 +24,9 @@ class UsersListErrorBoundary extends React.Component {
   }
 }
 
-var base_url = process.env.REACT_APP_API_DEV;
+var base_url = process.env.REACT_APP_API_DEV || "https://mern-1.azurewebsites.net/";
 console.log("base_url", base_url)
+// my comment
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);
